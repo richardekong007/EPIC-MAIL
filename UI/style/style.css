@@ -1,0 +1,145 @@
+/*form content for sign-up and sign-in page*/
+.header {
+    color: #102;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+
+}
+
+.authenticationSection {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    margin: auto;
+    text-align: center;
+    width: 30%;
+    color: white;
+    font-size: 15px;
+    border-radius: 4px;
+    border: solid 1px white;
+    padding: 100px;
+    background-color: #102;
+    box-shadow: 5px 10px #888888;
+}
+
+.authenticationSection a {
+    text-decoration: none;
+    color: white;
+}
+
+.authenticationSection a:hover {
+
+}
+
+form {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-gap: 20px;
+}
+
+label {
+    grid-column: 1/2;
+    color: white;
+    font-size: 20px;
+}
+
+input {
+    grid-column: 2/3;
+    height: 35px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+button {
+    grid-column: 1/3;
+    height: 30px;
+    background-color: #fff;
+    color: #102;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px white;
+    font-weight: bold;
+}
+
+/*header style for both users and admin*/
+#headerSection {
+    position: absolute;
+    background-color: #102;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    border: solid 1px white;
+}
+
+#headerTitle {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    display: inline;
+    font-size: 25px;
+}
+
+#hamburger {
+    margin: 3px;
+    display: inline;
+    float: left;
+
+}
+
+/*side navigation menu style*/
+#navigationMenu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #102;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    border: solid 1px white;
+}
+
+#navigationMenu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+#navigationMenu a:hover {
+    color: orange;
+}
+
+#navigationMenu #closeButton {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    #navigationMenu {
+        padding-top: 15px;
+    }
+
+    #navigationMenu a {
+        font-size: 18px;
+    }
+}
+
+/* main content style*/
+#content {
+    transition: margin-left 0.5s;
+    padding: 20px;
+}
