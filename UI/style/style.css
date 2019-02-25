@@ -116,6 +116,13 @@ button {
     transition: 0.3s;
 }
 
+#navigationMenu p{
+    color:white;
+    font-size:40px;
+    font-weight:bold;
+    padding: 10px;
+}
+
 #navigationMenu a:hover {
     color: orange;
 }
@@ -142,4 +149,48 @@ button {
 #content {
     transition: margin-left 0.5s;
     padding: 20px;
+}
+
+/*ComposeMail contents style*/
+
+.composeMailForm{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-gap: 20px;
+}
+
+#composeMailTextArea{
+    grid-column: 2/3;
+    width: 99%;
+    height: 240px;
+    border-radius:4px;
+    border: solid 1px #102;
+    resize: vertical;
+    font-size: 20px;
+}
+
+.composeMailForm label{
+    color:#102;
+    font-weight:bold;
+}
+.composeMailForm input{
+    border:solid 1px #102;
+    font-size:20px;
+}
+
+.composeMailForm div button{
+    width: 100px;
+    color:white;
+    background-color: #102;
+    font-weight: bold;
+    border-radius:4px;
+
+
+}
+
+.composeMailForm div{
+    display:flex;
+    flex-direction: row;
+    grid-column:2/3;
+    align-content: space-between;
 }
