@@ -39,18 +39,18 @@ function buildComposeMailUI() {
     const actionSection = document.createElement('div');
     const sendButton = document.createElement('button');
     const attachButton = document.createElement('button');
-    const cancelButton = document.createElement('button');
+    const draft = document.createElement('button');
     actionSection.setAttribute('id', 'actionSection');
     sendButton.setAttribute('id', 'sendButton');
     sendButton.innerText = 'Send';
     attachButton.setAttribute('id', 'attachButton');
     attachButton.innerText = 'Attach';
-    cancelButton.setAttribute('id', 'cancel');
-    cancelButton.innerText = 'Cancel';
+    draft.setAttribute('id', 'draft');
+    draft.innerText = 'Save to Draft';
 
     //add elements to content when form contains no element
     if (form.childNodes.length < 1) {
-        appendAllChildren(actionSection, [sendButton, attachButton, cancelButton]);
+        appendAllChildren(actionSection, [sendButton, attachButton, draft]);
         appendAllChildren(form, [lineBreak, recipientLabel, recipientInput, copyToLabel, copyToInput,
             subjectLabel, subjectInput, messageTextArea, actionSection]);
         //add the form to content div
