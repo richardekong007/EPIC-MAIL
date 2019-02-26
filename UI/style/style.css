@@ -197,7 +197,7 @@ button {
 }
 
 /* style for creatGroupUI*/
-.memberContainerView {
+.EntityViewer {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -210,19 +210,19 @@ button {
     border-radius: 4px;
 }
 
-.memberContainerView p {
+.EntityViewer p {
     flex-basis: 95%;
     align-self: center;
     font-weight: bold;
     color: #102;
 }
 
-.memberContainerView input {
+.EntityViewer input {
     width: 20px;
     height: 20px;
 }
 
-.memberContainerView span {
+.EntityViewer span {
     background-color: #f00;
     color: white;
     border-radius: 50%;
