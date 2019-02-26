@@ -5,12 +5,13 @@
     <title>EPIC MAIL</title>
     <link href="./style/style.css" type="text/css" rel="stylesheet"/>
     <script src="script/navigationMenuSlider.js"></script>
+    <script src="script/createGroupUI.js"></script>
 </head>
 <body>
 
 <div id="headerSection">
     <img src="./shapes/hamburger.svg" id="hamburger" alt="hamburger" onclick="openNav()"/>
-    <p id="headerTitle">Create Group</p>
+    <p id="headerTitle"></p>
 </div>
 
 <div id="navigationMenu">
@@ -19,14 +20,12 @@
         <img src="./shapes/envelope.svg" alt="envelope"/>
         EPIC MAIL!
     </p>
-    <a href="#">Create Group</a>
+    <a href="javascript:void(0)" onclick="createGroupUI()">Create Group</a>
     <a href="#">View Group</a>
     <a href="./signInPage.html">Quit</a>
 </div>
 
-<div id="content">
-    <h1>All Contents goes in here</h1>
-</div>
+<div id="content"></div>
 
 </body>
 </html>
