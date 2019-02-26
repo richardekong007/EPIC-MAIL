@@ -5,24 +5,49 @@ function createGroupUI() {
     const title = document.getElementById('headerTitle');
     const headerSection = document.getElementById('headerSection');
     const addButton = document.createElement('button');
+    const lineBreak = document.createElement('br');
     addButton.setAttribute('id', 'adminAddButton');
     addButton.innerText = "Add";
     addButton.onclick = displayDialog;
     headerSection.appendChild(addButton);
     title.textContent = 'Create Group';
-    if (mainSection.childNodes.length < 1) {
-        let lineBreak = document.createElement('br');
-        mainSection.appendChild(lineBreak);
-        members.forEach((member, index) => {
-            let memberView = new MemberContainerView(member);
-            memberView.setIndex(index + 1);
-            mainSection.appendChild(memberView.getContainer())
-        });
-    }
+    mainSection.innerHTML = '';
+    mainSection.appendChild(lineBreak);
+    displayEntities(members, mainSection);
+
 }
 
-function viewGroupUI(){
+function viewGroupUI() {
+    const groups = createGroups();
+    const headerSection = document.getElementById('headerSection');
+    const mainSection = document.getElementById('content');
+    const title = document.getElementById('headerTitle');
+    const lineBreak = document.createElement('br');
+    removeElementById('adminAddButton', headerSection);
+    title.textContent = "Groups";
+    mainSection.innerHTML = '';
+    mainSection.appendChild(lineBreak);
+    displayEntities(groups, mainSection)
+}
 
+function displayEntities(entities, section) {
+    entities.forEach((entity, index) => {
+        let entityViewer = new EntityViewer(entity);
+        entityViewer.setIndex(index + 1);
+        section.appendChild(entityViewer.getViewer());
+    });
+}
+
+function removeElementById(id, parent) {
+
+    if (parent.hasChildNodes()) {
+        let element = document.getElementById(id);
+        if (element) {
+            if (element.parentNode === parent) {
+                parent.removeChild(element);
+            }
+        }
+    }
 }
 
 //create mock members
@@ -36,36 +61,53 @@ const createMembers = () => {
     return [member1, member2, member3, member4, member5, member6];
 };
 
+//create mock groups
+const createGroups = () => {
+    const group1 = new Group(1, 'Human Resource');
+    const group2 = new Group(2, "Db Team");
+    const group3 = new Group(3, 'Management');
+    const group4 = new Group(4, 'Dev ops');
+    const group5 = new Group(5, 'QA Team');
+    let groups = [group1, group2, group3, group4, group5];
+    groups.forEach(group => {
+        group.setMembers(createMembers())
+    });
+    return groups;
+};
+
 // create required objects
-class MemberContainerView {
-    constructor(member) {
-        this._container = document.createElement('div');
+class EntityViewer {
+    constructor(entity) {
+        this._viewer = document.createElement('div');
         this._checker = document.createElement('input');
         this._paragraph = document.createElement('p');
         this._indexSpan = document.createElement('span');
-        this._member = member;
-        this._paragraph.textContent = this._member.getEmail();
+        this._entity = entity;
+        if (entity instanceof Member)
+            this._paragraph.textContent = this._entity.getEmail();
+        else if (entity instanceof Group)
+            this._paragraph.textContent = this._entity.getName();
         this._checker.setAttribute('type', 'checkbox');
-        this._container.setAttribute("class", "memberContainerView");
-        this._container.appendChild(this._indexSpan);
-        this._container.appendChild(this._paragraph);
-        this._container.appendChild(this._checker);
+        this._viewer.setAttribute("class", "EntityViewer");
+        this._viewer.appendChild(this._indexSpan);
+        this._viewer.appendChild(this._paragraph);
+        this._viewer.appendChild(this._checker);
     }
 
-    getMember() {
-        return this._member;
+    getEntity() {
+        return this._entity;
     }
 
-    setMember(value) {
-        this._member = value;
+    setEntity(value) {
+        this._entity = value;
     }
 
-    getContainer() {
-        return this._container;
+    getViewer() {
+        return this._viewer;
     }
 
-    setContainer(value) {
-        this._container = value;
+    setViewer(value) {
+        this._viewer = value;
     }
 
     getChecker() {
