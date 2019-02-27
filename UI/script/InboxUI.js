@@ -196,7 +196,7 @@ class ItemViewer {
 const createInboxItems = () => {
 
     const message1 = new Message(1, "There will be conference", "Conference");
-    const message2 = new Message(2, "You have been Promoted to Senior developer", "Promotion");
+    const message2 = new Message(2, "You have been Promoted to position of Senior developer", "Promotion");
     const message3 = new Message(3, "EPIC Mail has been accepted", 'EPIC Mail Status');
     const message4 = new Message(4, "Project deadline has been Postponed", 'EPIC Mail Postponement');
     const message5 = new Message(5, "Max is now CTO", 'New CTO');
@@ -226,20 +226,68 @@ const createInboxItems = () => {
     return [item1, item2, item3, item4, item5, item6];
 };
 
-function displayInbox() {
+function displayItemsInInbox() {
+
     const mainSection = document.getElementById('content');
     const lineBreak = document.createElement('br');
     const contentTitle = document.getElementById('headerTitle');
+    const inboxItems = createInboxItems();
+    let viewers;
     mainSection.innerHTML = '';
     contentTitle.textContent = "Inbox";
     mainSection.appendChild(lineBreak);
-    displayItems(createInboxItems(), mainSection);
+    viewers = displayAndGetItemViewers(inboxItems, mainSection);
+    displayReceivedItem(viewers);
 }
 
-function displayItems(items, section) {
+function displayReceivedItem(viewers) {
+    viewers.forEach((viewer) => {
+        let viewButton = viewer.getViewButton();
+        viewButton.onclick = () => {
+            showMessage(viewer.getItem())
+        };
+    });
+}
+
+function displayAndGetItemViewers(items, section) {
+    let viewers = [];
     items.forEach((item, index) => {
         let viewer = new ItemViewer(item);
         viewer.setIndexSpan(index + 1);
         section.appendChild(viewer.getViewer());
+        viewers.push(viewer);
     });
+    return viewers;
+}
+
+function showMessage(viewerItem) {
+
+    const mainSection = document.getElementById('content');
+    const receivedMailView = document.createElement('div');
+    const subjectView = document.createElement('div');
+    const senderEmailView = document.createElement('div');
+    const dateView = document.createElement('div');
+    const messageView = document.createElement('div');
+
+    subjectView.textContent = viewerItem.getSender().getMessage().getSubject();
+    senderEmailView.textContent = viewerItem.getSender().getEmail();
+    dateView.textContent = viewerItem.getCreatedOn();
+    messageView.textContent = viewerItem.getSender().getMessage().getContent();
+
+    let elements = [subjectView, senderEmailView, dateView, messageView];
+    receivedMailView.setAttribute('id', 'receivedMailView');
+    subjectView.setAttribute('id', 'subjectView');
+    senderEmailView.setAttribute('id', 'senderEmailView');
+    dateView.setAttribute('id', 'dateView');
+    messageView.setAttribute('id', 'messageView');
+
+    if (mainSection.hasChildNodes()) {
+        mainSection.innerHTML = '';
+        receivedMailView.appendChild(document.createElement('br'));
+        elements.forEach(element => {
+            receivedMailView.appendChild(element);
+        });
+        mainSection.appendChild(receivedMailView);
+    }
+
 }
