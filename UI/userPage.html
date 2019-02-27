@@ -6,12 +6,13 @@
     <link href="./style/style.css" type="text/css" rel="stylesheet"/>
     <script src="script/NavigationMenuSlider.js"></script>
     <script src="script/ComposeMailUI.js"></script>
+    <script src="script/InboxUI.js"></script>
 </head>
 
 <body>
 <div id="headerSection">
     <img id="hamburger" src="./shapes/hamburger.svg" alt="hamburger" onclick="openNav()"/>
-    <p id="headerTitle">Inbox</p>
+    <p id="headerTitle"></p>
 </div>
 <div id="navigationMenu">
     <a href="javascript:void(0)" id="closeButton" onclick="closeNav()">&times;</a>
@@ -20,7 +21,7 @@
         EPIC MAIL!
     </p>
     <a href="javascript:void(0)" onclick="buildComposeMailUI()">Compose Mail</a>
-    <a href="#">Inbox</a>
+    <a href="javascript:void(0)" onclick="displayInbox()">Inbox</a>
     <a href="#">Sent</a>
     <a href="#">Draft</a>
     <a href="./signInPage.html">Quit</a>
