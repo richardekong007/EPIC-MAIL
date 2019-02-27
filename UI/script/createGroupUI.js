@@ -1,5 +1,4 @@
 
-
 function createGroupUI() {
     //create members
     const members = createMembers();
@@ -253,3 +252,4 @@ function displayDialog() {
         }
     }
 }
+
