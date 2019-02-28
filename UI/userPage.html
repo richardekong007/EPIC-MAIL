@@ -9,13 +9,14 @@
     <script src="script/composeMailUI.js"></script>
     <script src="script/Message.js"></script>
     <script src="script/Sender.js"></script>
-    <script src="script/InboxItem.js"></script>
+    <script src="script/MessagesItem.js"></script>
     <script src="script/ItemViewer.js"></script>
     <script src="script/MockData.js"></script>
-    <script src="script/InboxUI.js"></script>
+    <script src="script/MessagesUI.js"></script>
+    <script src="script/ResetPasswordUI.js"></script>
 </head>
 
-<body>
+<body onload="displayInbox()">
 <div id="headerSection">
     <img id="hamburger" src="./shapes/hamburger.svg" alt="hamburger" onclick="openNav()"/>
     <p id="headerTitle"></p>
@@ -27,10 +28,10 @@
         EPIC MAIL!
     </p>
     <a href="javascript:void(0)" onclick="buildComposeMailUI()">Compose Mail</a>
-    <a href="javascript:void(0)" onclick="displayItemsInInbox()">Inbox</a>
-    <a href="#">Sent</a>
-    <a href="#">Draft</a>
-    <a href="#">Edit Account</a>
+    <a href="javascript:void(0)" onclick="displayInbox()">Inbox</a>
+    <a href="javascript:void(0)" onclick="displaySentItems()">Sent</a>
+    <a href="javascript:void(0)" onclick="displayDraft()">Draft</a>
+    <a href="javascript:void(0)" onclick="displayPasswordResetUI()">Reset</a>
     <a href="./signInPage.html">Quit</a>
 </div>
 

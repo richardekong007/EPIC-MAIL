@@ -1,5 +1,30 @@
+//create mock data for sent messages
+const createSentItems = () => {
+    const kong1 = new Sender(7, 'kong-jax@gmail.com', 'Kong');
+    const kong2 = new Sender(7, 'kong-jax@gmail.com', 'Kong');
+    const kong3 = new Sender(7, 'kong-jax@gmail.com', 'Kong');
+    const kong4 = new Sender(7, 'kong-jax@gmail.com', 'Kong');
+    const kong5 = new Sender(7, 'kong-jax@gmail.com', 'Kong');
+    const kong6 = new Sender(7, 'kong-jax@gmail.com', 'Kong');
 
-//create mock messaging items
+    let kongs = [kong1, kong2, kong3, kong4, kong5, kong6];
+    let messages = createMessages();
+
+    kongs.forEach((kong,index)=>{
+        kong.setMessage(messages[index]);
+    });
+
+    const item1 = new MessagesItem(kong1, 'Feb 27');
+    const item2 = new MessagesItem(kong2, 'Feb 15');
+    const item3 = new MessagesItem(kong3, 'Feb 6');
+    const item4 = new MessagesItem(kong4, 'Jan 29');
+    const item5 = new MessagesItem(kong5, 'Jan 25');
+    const item6 = new MessagesItem(kong6, 'Jan 20');
+
+    return [item1,item2,item3, item4,item5,item6];
+};
+
+//create mock message inbox items
 const createInboxItems = () => {
 
     const message1 = new Message(1, "There will be conference", "Conference");
@@ -23,12 +48,12 @@ const createInboxItems = () => {
     sender5.setMessage(message5);
     sender6.setMessage(message6);
 
-    const item1 = new InboxItem(sender1, 'Feb 27');
-    const item2 = new InboxItem(sender2, 'Feb 15');
-    const item3 = new InboxItem(sender3, 'Feb 6');
-    const item4 = new InboxItem(sender4, 'Jan 29');
-    const item5 = new InboxItem(sender5, 'Jan 25');
-    const item6 = new InboxItem(sender6, 'Jan 20');
+    const item1 = new MessagesItem(sender1, 'Feb 27');
+    const item2 = new MessagesItem(sender2, 'Feb 15');
+    const item3 = new MessagesItem(sender3, 'Feb 6');
+    const item4 = new MessagesItem(sender4, 'Jan 29');
+    const item5 = new MessagesItem(sender5, 'Jan 25');
+    const item6 = new MessagesItem(sender6, 'Jan 20');
 
     return [item1, item2, item3, item4, item5, item6];
 };
@@ -57,3 +82,15 @@ const createGroups = () => {
     });
     return groups;
 };
+
+
+function createMessages() {
+
+    const message1 = new Message(1, "There will be conference", "Conference");
+    const message2 = new Message(2, "You have been Promoted to position of Senior developer", "Promotion");
+    const message3 = new Message(3, "EPIC Mail has been accepted", 'EPIC Mail Status');
+    const message4 = new Message(4, "Project deadline has been Postponed", 'EPIC Mail Postponement');
+    const message5 = new Message(5, "Max is now CTO", 'New CTO');
+    const message6 = new Message(6, "We will be switching from AsynTask to RxAndroid", 'Framework Switch');
+    return [message1, message2, message3, message4, message5, message5, message6];
+}

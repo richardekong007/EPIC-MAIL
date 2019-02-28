@@ -197,7 +197,7 @@ button {
 }
 
 /* style for InboxUI*/
-.itemViewer{
+.itemViewer {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -211,16 +211,16 @@ button {
 
 }
 
-#dateReceived{
+#dateReceived {
     align-self: flex-start;
-    position:absolute;
-    left:92%;
+    position: absolute;
+    left: 92%;
     font-weight: bolder;
 }
 
-#itemViewerIndex{
+#itemViewerIndex {
 
-    color:white;
+    color: white;
     background-color: #f00;
     border-radius: 50%;
     width: 30px;
@@ -229,29 +229,28 @@ button {
     margin-right: 50px;
 }
 
-#itemViewer div{
-
+#itemViewer div {
     width: 100%;
     font-weight: bold;
     font-size: 40px;
 }
 
-#viewButton{
-    color:white;
-    background-color:#102;
-    border-radius:4px;
+#viewButton {
+    color: white;
+    background-color: #102;
+    border-radius: 4px;
     align-self: flex-end;
-    position:absolute;
-    left:87%;
+    position: absolute;
+    left: 87%;
 }
 
-#deleteButton{
-    color:white;
+#deleteButton {
+    color: white;
     background-color: #f22;
-    border-radius:4px;
+    border-radius: 4px;
     align-self: flex-end;
-    position:absolute;
-    left:91%;
+    position: absolute;
+    left: 91%;
 }
 
 /* style for creatGroupUI*/
@@ -341,18 +340,18 @@ button {
     border-top-left-radius: 4px;
 }
 
-#createGroupDialog label{
+#createGroupDialog label {
     grid-column: 1;
-    color:#102;
+    color: #102;
 }
 
-#createGroupDialog input{
+#createGroupDialog input {
     grid-column: 2;
     border: solid 1px #102;
 }
 
 #createGroupDialog button {
-    margin-left:220px;
+    margin-left: 220px;
     background-color: #102;
     height: 40px;
     border-radius: 4px;
@@ -360,39 +359,104 @@ button {
     font-size: 20px;
 }
 
-#receivedMailView{
-    display:grid;
+#receivedMailView {
+    display: grid;
     grid-template-columns: 80% 1fr;
-    width:100%;
-    color:#102;
+    width: 100%;
+    color: #102;
     font-size: 20px;
-    align-items:center;
+    align-items: center;
 }
 
-#subjectView{
+#subjectView {
     grid-column: 1/2;
     margin: 5px;
-    width:100%;
-    font-weight:bolder;
+    width: 100%;
+    font-weight: bolder;
     text-align: center;
 }
 
-#senderEmailView{
+#senderEmailView {
     grid-column: 1/1;
     margin: 5px;
     text-align: center;
-    font-weight:bolder;
+    font-weight: bolder;
 }
 
-#dateView{
+#dateView {
     grid-column: 2/2;
     margin: 5px;
-    font-weight:bolder;
+    font-weight: bolder;
     text-align: right;
 }
 
-#messageView{
+#messageView {
     grid-column: 1/2;
     margin: 10px;
     text-align: justify-all;
+}
+
+/* style for reset password form */
+
+#resetPasswordForm {
+    margin: 100px;
+    width: 60%;
+    padding: 60px;
+    border-radius: 4px;
+    border: solid 1px #102;
+    box-shadow: 5px 10px #888888;
+}
+
+#resetPasswordForm label {
+    color: #102;
+    font-weight: bolder;
+}
+
+#resetPasswordFormButton {
+    background-color: #f22;
+    color: white;
+    grid-column: 2/2;
+    border: solid 1px #102;
+}
+
+#resetPasswordForm input {
+    border: solid 1px #102;
+    border-radius: 4px;
+}
+
+/* draft content*/
+#expandedDraftContent {
+    display: grid;
+    grid-template-columns: 10% 1fr;
+    margin: 30px;
+}
+
+#expandedDraftContent label {
+    color: #102;
+    font-weight: bolder;
+}
+
+#expandedDraftContent input {
+    border:solid 1px #102
+}
+
+#expandedDraftContent textarea {
+    grid-column: 2/2;
+    width: 99%;
+    height: 300px;
+    margin-top: 40px;
+    border: solid 1px white;
+    font-weight: bold;
+}
+
+#expandedDraftContent button {
+    background-color: #102;
+    color: white;
+    border-radius: 4px;
+}
+
+#expandedDraftContent div {
+    grid-column: 2/2;
+    margin-top: 50px;
+    width: 50%;
 }

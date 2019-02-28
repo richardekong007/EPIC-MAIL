@@ -8,7 +8,7 @@ class ItemViewer {
         this._dateSpan = document.createElement('span');
         this._viewButton = document.createElement('button');
         this._deleteButton = document.createElement('button');
-        this.setInboxItemDetail();
+        this.setItemDetail();
         this.setDateSpan();
         this._viewButton.setAttribute('id', 'viewButton');
         this._deleteButton.setAttribute('id', 'deleteButton');
@@ -30,13 +30,19 @@ class ItemViewer {
         this._item = value;
     }
 
+    setViewer(viewer){
+        if (typeof(viewer) === 'object'){
+            this._viewer = viewer;
+        }
+    }
+
     getViewer() {
         return this._viewer;
     }
 
     setIndexSpan(value) {
         this._indexSpan.setAttribute('id', 'itemViewerIndex');
-        if (typeof value === 'number')
+        if (typeof(value) === 'number')
             this._indexSpan.textContent = (parseInt(value)).toString();
     }
 
@@ -57,7 +63,7 @@ class ItemViewer {
         this._dateSpan.innerText = this._item.getCreatedOn()
     }
 
-    setInboxItemDetail() {
+    setItemDetail() {
         let senderEmail = document.createTextNode(this._item.getSender().getEmail());
         let subject = document.createTextNode(this._item.getSender().getMessage().getSubject());
         let msgHeader = document.createTextNode('');
@@ -72,6 +78,12 @@ class ItemViewer {
                 this._inboxItemDetail.appendChild(document.createElement('br'));
             this._inboxItemDetail.appendChild(detail);
         });
+    }
+
+    appendChildNode(child) {
+        if (child instanceof Node) {
+            this._viewer.appendChild(child);
+        }
     }
 
 }
