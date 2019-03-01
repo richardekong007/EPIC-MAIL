@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>EPIC MAIL</title>
     <link href="./style/style.css" rel="stylesheet"/>
+    <script src="script/authentication.js"></script>
 </head>
 <body class="background">
 <header class="header">
@@ -12,12 +13,12 @@
 </header>
 <article>
     <div class="authenticationSection">
-        <form>
+        <form id="signInForm">
             <label for="email">Email/Username:</label>
             <input id="email" type="text" placeholder="Please enter email/username" required/>
             <label for="password">Password:</label>
             <input id="password" type="password" placeholder="Please enter password" required/>
-            <button id="signInButton" class="formActionButton">SIGN IN</button>
+            <button id="signInButton" class="formActionButton" onclick="authenticate()">SIGN IN</button>
         </form>
         <br>
         <a href="signUpPage.html">
@@ -25,5 +26,6 @@
         </a>
     </div>
 </article>
+
 </body>
 </html>
